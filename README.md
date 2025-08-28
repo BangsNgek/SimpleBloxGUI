@@ -16,7 +16,18 @@ Desainnya minimalis namun fungsional, sehingga mudah dipahami dan dimodifikasi.
 
 ## ✨ Features
 - 📌 **Lightweight** — Script kecil & mudah dipahami.
-- ⚡ **Fast Execution** — Perintah berjalan cepat tanpa delay besar.
+- 📌 **Fast Execution** — Perintah berjalan cepat tanpa delay besar.
+- 📌 **God Mode** - Helath unlimited
+- 📌 **Character Fly** - Terbang kaya admin
+- 📌 **Teleport Player** - Teleportasi ke player menggunakan username
+- 📌 **Auto Summit Gunung** - Teleport ke summit hanya beberapa gunung
+- 📌 **Fish It** - Tools pembantu untuk map pemancingan
+
+
+---
+## 🛠️ Executor Tools
+- 💎 **Delta Android** : https://deltaexploits.gg/delta-executor-android
+- 💎 **Krnl Executor** : https://krnl.cat/
 
 ---
 
