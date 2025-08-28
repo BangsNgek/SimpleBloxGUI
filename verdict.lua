@@ -691,6 +691,68 @@ Main:CreateToggle({
         end
     }) 
 
+    local CarryTab = Window:CreateTab("Carry", 4483362458)
+    windows.Carry = CarryTab
+    
+    CarryTab:CreateSection("Carry Gunung Atin")
+    local carryTargetName = nil
+    local function carryPlayerOption()
+        return sortedPlayerNames()
+    end
+
+    local PlayerDropdown = CarryTab:CreateDropdown({
+        Name = "Pilih Pemain",
+        Options = carryPlayerOption(),
+        CurrentOption = {},
+        MultipleOptions = false,
+        Flag = "CarryPlayerDropdown",
+        Callback = function(option)
+            carryTargetName = (typeof(option) == "table" and option[1]) or option
+        end,
+    })
+
+    setConn("playerAdd", Players.PlayerAdded:Connect(function()
+        pcall(function() PlayerDropdown:Refresh(carryPlayerOption(), true) end)
+    end))
+    setConn("playerRem", Players.PlayerRemoving:Connect(function()
+        pcall(function() PlayerDropdown:Refresh(carryPlayerOption(), true) end)
+    end))
+    
+    CarryTab:CreateButton({
+        Name = "Carry Pemain",
+        Callback = function()
+            if not carryTargetName or carryTargetName == "" then
+                notify("Pilih pemain terlebih dahulu.")
+                return
+            end
+            local target = Players:FindFirstChild(carryTargetName)
+            if target and target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
+                local hrp = getHRP()
+                local carryVal = {
+                [1] = {
+                    ["cmd"] = "AskCarry";
+                    ["carrychoicesss"] = ReplicatedStorage:WaitForChild("CarryReplic", 9e9):WaitForChild("CarryChoices", 9e9):WaitForChild("Gendong Pundak", 9e9);
+                    ["targetPlr"] = game:GetService("Players"):WaitForChild(carryTargetName, 9e9);
+                    };
+                }
+                if hrp then
+                    ReplicatedStorage:WaitForChild("CarryReplic", 9e9):WaitForChild("CarryRemotes", 9e9):WaitForChild("CarryRemote", 9e9):FireServer(unpack(carryVal))
+                    notify("Carry ditransfer ke "..carryTargetName)
+                end
+            else
+                notify("Pemain tidak valid atau belum spawn.")
+            end
+        end
+    })
+
+    CarryTab:CreateButton({
+        Name = "Refresh List",
+        Callback = function()
+            PlayerDropdown:Refresh(carryPlayerOption(), true)
+            notify("Daftar pemain diperbarui.")
+        end
+    })
+
     local MiscTab = Window:CreateTab("Misc", 4483362458)
     windows.Misc = MiscTab
     
