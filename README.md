@@ -29,6 +29,9 @@ Desainnya minimalis namun fungsional, sehingga mudah dipahami dan dimodifikasi.
 - 💎 **Delta Android** : https://deltaexploits.gg/delta-executor-android
 - 💎 **Krnl Executor** : https://krnl.cat/
 
+## 🔑 U Need Key?
+Contact Me : https://wa.me/6285951610126
+
 ---
 
 ## 📜 Example Usage
